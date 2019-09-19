@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<title>Dialog Chatbot</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+}
+.main{
+  background:url(https://images.unsplash.com/photo-1568438350562-2cae6d394ad0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80) no-repeat;
+  background-size:cover;
+  width:100%;
+  height:100vh;
+}
+.dialog-box{
+  display:none;
+  width:300px;
+  height:380px;
+  border-radius:10px;
+  position:fixed;
+  bottom:40px;
+  right:40px;
+  z-index:1;
+  background:white;
+  box-shadow:0px 0px 5px black;
+}
+.float-button img{
+  width:50px;
+  height:50px;
+  position:fixed;
+  right:10px;
+  bottom:10px;
+  cursor:pointer;
+}
+.float-button img:hover{
+  transform: scale(1.22);
+  transition:2s;
+  z-index:3;
+}
+</style>
+</head>
+<body>
+    <div class="main">
+        <div class="float-button">
+          <div class="dialog-box" id="chatbox">
+            <iframe width="300" height="380" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/0b5a080d-d48a-4d52-8aaa-72ff3a21f428"></iframe>
+          </div>
+        <img id="chatbot" src="https://image.flaticon.com/icons/svg/766/766594.svg" alt="">
+        </div>
+      </div>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+
+$(document).ready(()=>{
+  $("#chatbot").click(()=>{
+   let currentPath = "https://image.flaticon.com/icons/svg/766/766594.svg";
+ let imgPath = 
+    $("#chatbot").attr('src');    
+   
+ if(imgPath == currentPath)   {
+   $("#chatbot").attr("src","https://image.flaticon.com/icons/svg/149/149147.svg");
+ }
+    else{
+      $("#chatbot").attr("src",currentPath);
+    }
+$(".dialog-box").toggle();
+  });
+});
+</script>
+</body>
+</html>
